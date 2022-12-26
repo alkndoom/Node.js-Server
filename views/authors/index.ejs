@@ -1,0 +1,9 @@
+<% if (authors.length > 0) { %> 
+    <% authors.forEach(author => { %>
+        <a href="/authors/<%= author._id %>">
+            <h3><%= author.name %> </h3>
+        </a>  
+    <% }) %>
+<% } else { %>
+    <p>There are no authors to display...</p>
+<% } %>    
