@@ -1,16 +1,5 @@
 <h1><%= author.name %> </h1>
 <p>-----AuthorDetails-----</p>
-<a class="delete" href="/authors/<%= author._id %>">DELETE</a>
-
-<script>
-    const trashcan = document.querySelector('a.delete');
-    trashcan.addEventListener('click', (e) => {
-      const endpoint = `/authors/${trashcan.dataset.doc}`;
-      fetch(endpoint, {
-        method: 'DELETE',
-      })
-      .then(response => response.json())
-      .then(data => window.location.href = data.redirect)
-      .catch(err => console.log(err));
-    });
-</script>
+<form action="/authors/delete/<%= author._id %>" method="GET">
+  <button type="submit">Delete</button>
+</form>

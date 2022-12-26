@@ -10,6 +10,6 @@ router.post('/', authorsController.authorsAddPost);
 
 router.get('/:id', authorsController.authorsDetails);
 
-router.delete('/:id', authorsController.authorsDelete);
+router.get('/delete/:id', authorsController.authorsDelete);
 
 module.exports = router;

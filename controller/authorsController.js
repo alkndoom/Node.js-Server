@@ -8,7 +8,7 @@ const authorsIndex = (req, res) => {
     })
     .catch(e => {
         console.log(e);
-        res.redirect('index')
+        res.redirect('/');
     });
 };
 
@@ -20,11 +20,11 @@ const authorsAddPost = (req, res) => {
     const author = new Author(req.body);
     author.save()
     .then(result => {
-        res.redirect('authors');
+        res.redirect('/authors');
     })
     .catch(e => {
         console.log(e);
-        res.redirect('index');
+        res.redirect('/');
     });
 };
 
@@ -36,7 +36,7 @@ const authorsDetails = (req, res) => {
     })
     .catch(e => {
         console.log(e);
-        res.redirect('index');
+        res.redirect('/');
     });
 };
 
@@ -44,11 +44,11 @@ const authorsDelete = (req, res) => {
     const id = req.params.id;
     Author.findByIdAndDelete(id)
     .then(result => {
-        res.json({ redirect: '/authors' });
+        res.redirect('/authors');
     })
     .catch(e => {
         console.log(e);
-        res.redirect('index');
+        res.redirect('/');
     });
 };
 
